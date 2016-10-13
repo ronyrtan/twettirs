@@ -1,5 +1,5 @@
 <div class="profileSmallHome">
-  <%= image_tag @current_user.profile_pic, :class => 'pp_dash' %>
+  <%= cl_image_tag @current_user.profile_pic, :class => 'pp_dash' %>
   <div class="dashHeaderImg"></div>
   <div class="profileDashInfo">
     <h3><%= link_to @current_user.name, user_path(@current_user), :class => 'profileDashName' %></h3>
@@ -16,7 +16,7 @@
   <% @whistles.reverse.each do |whistle| %>
   <div class="allPostsSeg">
     <div class="aside_pp">
-      <%= link_to image_tag(whistle.user.profile_pic), user_path(whistle.user), :class => 'pp_thumb' %>
+      <%= link_to cl_image_tag(whistle.user.profile_pic), user_path(whistle.user), :class => 'pp_thumb' %>
     </div>
     <div class="allPostNameHeader">
       <div class="allPostName">
