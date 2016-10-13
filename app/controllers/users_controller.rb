@@ -45,7 +45,7 @@ class UsersController < ApplicationController
   def update
     @user = @current_user
     # @user = User.find params[:id]
-    if params [:file].present?
+    if params[:file].present?
       req = Cloudinary::Uploader.upload params[:file]
       user.profile_pic = req["public_id"]
     end
