@@ -34,7 +34,9 @@
                 </div>
                   <% end %>
                 <% end %>
+                <% if @current_user.admin? || @current_user.id == @whistle.user.id %>
               | <%= link_to 'Delete Whistle', @user, :method => 'delete', :data => {:confirm => 'Are you sure?'} %>
+              <% end %>
           </div>
         </div>
 
