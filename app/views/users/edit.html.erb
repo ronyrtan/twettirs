@@ -10,7 +10,7 @@
   <% end %>
 </div>
 
-<%= form_for @user do |f| %>
+<%= form_for(@user, :html => {:multipart => true}) do |f| %>
   <p>
     <%= f.email_field :email, :required => true, :placeholder => 'Email', :class => "signUpForm" %>
   </p>
@@ -32,7 +32,7 @@
   </p>
 
   <p>
-    <%= f.text_field :profile_pic, :placeholder => 'Profile picture URL', :class => "signUpForm"  %>
+    <%= f.cl_image_upload :profile_pic, :placeholder => 'Profile picture URL', :class => "signUpForm"  %>
   </p>
 
 <%= f.submit 'Save changes', :class => 'signUpFormButton' %>
