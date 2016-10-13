@@ -42,7 +42,7 @@ class UsersController < ApplicationController
     @user = User.find params[:id]
     if params[:file].present?
       req = Cloudinary::Uploader.upload(params[:file])
-      user.profile_pic = req["public_id"]
+      @user.profile_pic = req["public_id"]
     end
     @user.update_attributes user_params
     @user.save
