@@ -1,0 +1,19 @@
+
+<div class="allPosts createPost">
+
+<%= form_for @whistle do |f| %>
+
+  <p>
+    <%= image_tag @current_user.profile_pic, :class => 'dp_thumb' %>
+    <%= f.text_area :post, :placeholder => "What's happening?", :size => 60, :maxlength => 140, :class => 'postWhistle' %>
+  </p>
+
+  <p>
+    <%= f.text_field :tag_list, :placeholder => 'Insert #tags here', :class => 'postTag' %>
+  </p>
+
+  <div class="submitButton">
+    <%= f.submit 'Whistle', :class => 'submitButtonWhistle' %>
+  </div>
+</div>
+<% end %>

@@ -1,0 +1,44 @@
+<div class="profileSmallHome">
+  <div class="hashTagShow">
+    <h3>Hashtags: <h3>
+    <div class="tag_show"><%= render @whistle.tags %></div>
+  </div>
+</div>
+
+<div class="allPosts allPostsHomePos">
+  <div class="allPostsSeg">
+    <ul>
+      <li>
+        <div class="aside_pp">
+          <%= link_to image_tag(@whistle.user.profile_pic), user_path(@whistle.user), :class => 'pp_thumb' %>
+        </div>
+        <div class="allPostNameHeader">
+          <div class="allPostName">
+            <%= link_to @whistle.user.name, :class => 'allPostName' %>
+          </div>
+          <div class="usernameDate">
+            @<%= link_to @whistle.user.username %>
+            - <%= link_to @whistle.created_at.localtime.strftime("%b %d - %I:%M %p") %>
+          </div>
+          <br>
+            <%= link_to @whistle.post, @whistle %>
+          <div class="postButtonLinkBar">
+            <% if @current_user %>
+              <% if @whistle.stared_by.first == nil %>
+                <div class="starColor">
+                  <%= link_to "☆ #{ @whistle.stared_by.count }", star_whistle_path(@whistle, type: "star"), method: :put, :class => "starColor" %>
+                </div>
+                <% elsif @whistle.stared_by.first.id == @current_user.id %>
+                <div class="unstarColor">
+                  <%= link_to "★ #{ @whistle.stared_by.count }", star_whistle_path(@whistle, type: "unstar"), method: :put, :class => "unstarColor" %>
+                </div>
+                  <% end %>
+                <% end %>
+              | <%= link_to 'Delete Whistle', @user, :method => 'delete', :data => {:confirm => 'Are you sure?'} %>
+          </div>
+        </div>
+
+      </li>
+    </ul>
+  </div>
+</div>

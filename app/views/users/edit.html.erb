@@ -1,0 +1,40 @@
+<div class="signUp">
+  <div class="signUpBoard">
+    <h2 class='signUpFormTitle'>Edit profile</h2>
+
+<div class="error">
+  <% if @user.errors.any? %>
+      <% @user.errors.full_messages.each do |msg| %>
+        <%= msg %>
+      <% end %>
+  <% end %>
+</div>
+
+<%= form_for @user do |f| %>
+  <p>
+    <%= f.email_field :email, :required => true, :placeholder => 'Email', :class => "signUpForm" %>
+  </p>
+
+  <p>
+    <%= f.text_field :username, :required => true, :placeholder => 'Username', :class => "signUpForm" %>
+  </p>
+
+  <p>
+    <%= f.text_field :name, :required => true, :placeholder => 'Name', :class => "signUpForm" %>
+  </p>
+
+  <p>
+    <%= f.password_field :password, :placeholder => 'Password', :class => "signUpForm" %>
+  </p>
+
+  <p>
+    <%= f.password_field :password_confirmation, :placeholder => 'Confirm Password', :class => "signUpForm" %>
+  </p>
+
+  <p>
+    <%= f.text_field :profile_pic, :placeholder => 'Profile picture URL', :class => "signUpForm"  %>
+  </p>
+
+<%= f.submit 'Save changes', :class => 'signUpFormButton' %>
+
+<% end %>

@@ -1,0 +1,118 @@
+<div class="profileHeader"></div>
+<div class="profileNavBar"></div>
+<div class="headerSpacer"></div>
+
+<div class="profileInfo">
+  <ul>
+    <li><%= image_tag @user.profile_pic, :class => 'profilePic' %></li>
+    <li><h3><%= @user.name %></h3></li>
+    <li class="profileUsername">@<%= @user.username %></li>
+    <li>E-mail: <%= @user.email %></li>
+  </ul>
+
+</div>
+<br>
+
+<div class="profileNavContent">
+  <a href="#">WHISTLES <span><%= @user.whistles.count %></span></a>
+  <a href="#openModaltwo">FOLLOWING<span><%= @relationship.where(:follower_id => @user.id).count %></span></a>
+  <a href="#openModalthree">FOLLOWERS<span><%= @relationship.where(:followed_id => @user.id).count %></span></a>
+  <a class="starSpan" href="#openModalfour">STARS<span><%= @user.stars.count %></span></a>
+</div>
+
+<% if @user.id == @current_user.id %>
+<div class="editProfile"><%= link_to 'Edit profile', edit_user_path(@user) %></div>
+<% else %>
+ <% found = false %>
+  <% @relationship.each do |r| %>
+    <% if r.follower_id == @current_user.id && r.followed_id == @user.id %>
+      <% found = true %>
+    <% else %>
+      <% found = false %>
+    <% end %>
+  <% end %>
+  <% if found ==  true %>
+    <div class=" editProfile">
+      <%= link_to "Following", destroy_relationship_path(@user.id), :method => 'delete' %>
+    </div>
+  <% else %>
+    <div class="editProfile">
+      <%= link_to "Follow", create_relationship_path(@user.id) %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="allPosts profilePostPos">
+  <% @user.whistles.reverse.each do |whistle| %>
+  <div class="allPostsSeg">
+    <div class="aside_pp">
+      <%= image_tag whistle.user.profile_pic, :class => 'pp_thumb' %>
+    </div>
+    <div class="allPostNameHeader">
+      <div class="allPostName">
+        <%= link_to whistle.user.name, :class => 'allPostName' %>
+      </div>
+      <div class="usernameDate">
+        @<%= link_to whistle.user.username %>
+        - <%= link_to whistle.created_at.localtime.strftime("%b %d - %I:%M %p") %>
+      </div>
+      <br>
+        <%= link_to whistle.post, whistle %>
+      <div class="postButtonLinkBar">
+
+        <% if @current_user %>
+          <% if whistle.stared_by.first == nil %>
+          <div class="starColor">
+            <%= link_to "☆ #{ whistle.stared_by.count }", star_whistle_path(whistle, type: "star"), method: :put, :class => "starColor" %>
+          </div>
+          <% elsif whistle.stared_by.first.id == @current_user.id %>
+          <div class="unstarColor">
+            <%= link_to "★ #{ whistle.stared_by.count }", star_whistle_path(whistle, type: "unstar"), method: :put, :class => "unstarColor" %>
+          </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+<div id="openModaltwo" class="modalDialog">
+  <div><a href="#close" title="Close" class="close">x</a>
+    <div class="spacefiller">Following</div>
+    <div class="signInPost">
+
+        <% @user.following.each do |n| %>
+        <p>
+          <%= link_to "#{n.username}", user_path(n) %>
+        </p>
+        <% end %>
+    </div>
+  </div>
+</div>
+
+<div id="openModalthree" class="modalDialog">
+  <div><a href="#close" title="Close" class="close">x</a>
+    <div class="spacefiller">Followers</div>
+    <div class="signInPost">
+      <p>
+      <% @relationship.where(:followed_id => @user.id).each do |n| %>
+      </p>
+        <%= link_to "#{User.find(n.follower_id).username}", user_path(n.follower_id) %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div id="openModalfour" class="modalDialog">
+  <div><a href="#close" title="Close" class="close">x</a>
+    <div class="spacefiller">Followers</div>
+    <div class="signInPost">
+      <p>
+        <% @user.star_whistles.each do |s| %>
+      </p>
+        <%= link_to "#{Whistle.find(s.whistle_id).post}", whistle_path(s.whistle_id) %>
+      <% end %>
+    </div>
+  </div>
+</div>

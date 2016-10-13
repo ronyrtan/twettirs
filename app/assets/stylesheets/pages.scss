@@ -1,0 +1,717 @@
+*{
+  margin: 0;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  // border: 1px solid green;
+}
+
+body {
+  background-color: #f5f8fa;
+  overflow-x: hidden;
+}
+
+//// NAV BAR ////
+
+.nav_outer { /// setting the space for the nav bar
+  background-color: white;
+  height: 46px;
+  width: 100%;
+  line-height: 46px;
+  font-size: 13px;
+  font-weight: 500;
+  // border-bottom: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 1px 1px rgba(41,47,51,.2);
+  text-decoration: none;
+  z-index: 5;
+  position: fixed;
+}
+
+nav {  /// dictates the space of the nav bar
+  max-width: 885px;
+  display: fixed;
+  margin: 0 auto;
+}
+
+.navigation { // totally not using floats.
+  display: inline-block;
+  float: left;
+}
+
+.nav_right{
+  display: inline-block;
+  float: right;
+}
+
+.nav { /// class for the Items on the nav bar
+  text-decoration: none;
+  display: inline-block;
+  height: 47px;
+  color: #66757f;
+  padding: 0 9px;
+  transition: all 0.18s ease-in-out;
+  // transition: border-bottom 0.05s ease-in-out;
+  border-bottom: 0px solid rgba(43,123,185,0);
+}
+
+.nav:hover {
+  height:42px;
+  border-bottom: 5px solid #2b7bb9;
+}
+
+.spacer {  /// spacer used to buffer intial content because nav bar is fixed
+  height: 46px;
+  width: 880px;
+  // background-color: black;
+  position: relative;
+}
+
+///// BODY CONTAINER ////
+
+.container {
+  max-width: 885px;
+  margin: 0 auto;
+  border-radius: 5px;
+  padding: 5px;
+  letter-spacing: 0.01em;
+
+}
+
+.profileHeader {
+  height: 175px;
+  width: 4000px;
+  left: -2000px;
+  position: absolute;
+  background-color: #2b7bb9;
+  z-index: -100;
+  margin-top: -5px
+}
+
+.profileNavBar {
+  background-color: white;
+  height: 60px;
+  width: 4000px;
+  position: absolute;
+  top: 222px;
+  left: -2000px;
+  border-bottom: 1px solid #e1e8ed;
+  box-shadow: 0 -1px 1px rgba(41,47,51,.4);
+}
+
+.headerSpacer {
+  position: relative;
+  height: 50px;
+}
+
+
+
+.profilePic {
+  height: 200px;
+  width: 200px;
+  border: 5px solid white;
+  border-radius: 10px;
+  box-shadow: 0 1px 1px rgba(136,153,166,0.15);
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+h3 {
+  font-size: 23px;
+  line-height: .8;
+  margin-bottom: 1px;
+}
+
+/////// PROFILE PAGE ///////
+
+.softProfileReset {
+  margin: 0;
+  padding: 0;
+}
+
+.profileUsername {
+  color: #8899a6;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.profileInfo {
+  display: inline-block;
+  width: 277px;
+  position: relative;
+  vertical-align: top;
+}
+
+.profileInfo li {
+  line-height: 1.5;
+}
+
+.pp_thumb {
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+.dp_thumb { // thumbnail when creating whistle
+  height: 32px;
+  width: 32px;
+  display: inline-block;
+  margin-left: 15px;
+  margin-right: 5px;
+  border-radius: 5px;
+}
+
+.editProfile {
+  background-color: white;
+  height: 35px;
+  width: 84px;
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  line-height: 35px;
+  left: 771px;
+  top: -221px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 0 10px;
+  text-align: center;
+}
+
+.editProfile a {
+  font-size: .9em;
+  text-decoration: none;
+  font-weight: 500;
+  color: gray;
+
+}
+
+.profileNavContent a {
+  display: inline-block;
+  position: relative;
+  height: 60px;
+  left: 290px;
+  top: -184px;
+  // backgroud-color: lightgray;
+  line-height: 60px;
+  padding: 0 15px;
+  text-decoration: none;
+  color: gray;
+  font-size: .7em;
+}
+
+.profileNavContent span {
+  font-size: 20px;
+  display: inline-block;
+  position: relative;
+  top: 22px;
+  right: 37px;
+  color: #2b7bb9;
+}
+
+.starSpan span {
+  right: 23px;
+}
+
+///// DASH /////
+
+.profileSmallHome {
+  display: inline-block;
+  position: relative;
+  width: 288px;
+  height: 191px;
+  background-color: white;
+  border: 1px solid #e1e8ed;
+  left: -2px;
+  top: 5px;
+  border-radius: 5px;
+  // z-index: -2;
+}
+
+.dashHeaderImg {
+  width: 100%;
+  height: 50%;
+  top: -75px;
+  display: inline-block;
+  position: relative;
+  z-index: 2;
+  background-color: #2b7bb9;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+}
+
+.pp_dash {
+  display: inline-block;
+  position: relative;
+  height: 68px;
+  width: 68px;
+  top: 66px;
+  left: 10px;
+  border-radius: 8px;
+  border: 2px solid white;
+  z-index: 4;
+}
+
+.profileDashUsername {
+  color: gray;
+  font-size: 11px;
+  line-height: 1;
+  margin-top: 5px;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+    z-index: 10;
+}
+
+.profileDashUsername:hover {
+  color: #2b7bb9;
+  text-decoration: underline;
+}
+
+.profileDashName {
+  text-decoration: none;
+  color: black;
+}
+
+.profileDashName:hover {
+  color: #2b7bb9;
+  text-decoration: underline;
+}
+
+.profileDashInfo {
+  display: inline-block;
+  width: 277px;
+  position: relative;
+  vertical-align: top;
+  bottom: 67px;
+  left: 90px;
+  z-index: 0;
+}
+
+.profileDashInfo h3 {
+  font-size: 18px;
+  font-weight: 325;
+  text-decoration: none;
+}
+
+.profileDashInfo li {
+  line-height: 1.5;
+}
+
+.profileDashContent a {
+  display: inline-block;
+  position: relative;
+  height: 40px;
+  // backgroud-color: lightgray;
+  line-height: 30px;
+  padding: 0 12px;
+  top: -68px;
+  text-decoration: none;
+  color: #8899a6;
+  font-size: .6em;
+  z-index: 1;
+}
+
+.profileDashContent span {
+  font-size: 20px;
+  display: inline-block;
+  position: relative;
+  top: -48px;
+  right: 45px;
+  color: #2b7bb9;
+  font-weight: 500;
+}
+
+/////////
+
+
+////// ALL POSTS /////
+
+
+.allPosts {
+  background-color: white;
+  width: 587px;
+  border-radius: 5px;
+  border: 1px solid #e1e8ed;
+  margin-top: 5px;
+  line-height: 1.35;
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  // left: 289px;
+}
+
+.allPostsHomePos {
+  position: relative;
+  left: 3px;
+}
+
+.profilePostPos {
+  position: relative;
+  left: 179px;
+  top: -166px;
+}
+
+.allPostsSeg {
+  display: inline-block;
+  position: relative;
+  width: 564px;
+  padding: 9px 12px;
+  background-color: white;
+  border-bottom: 1px solid #e1e8ed;
+  vertical-align: top;
+  background: transparent;
+  // border-radius: 10px;
+}
+
+.allPostsSeg a {
+  display: inline-block;
+  vertical-align: top;
+  text-decoration: none;
+  list-style-type: none;
+  color: black;
+}
+
+.allPostsSeg span {
+  display: inline-block;
+  vertical-align: top;
+  color: gray;
+}
+
+.allPostName {
+  display: inline-block;
+  vertical-align: top;
+  color: black;
+  font-weight: 600;
+  margin-top: -3px;
+}
+
+.allPostName a:hover {
+  text-decoration: underline;
+  color: #2b7bb9;
+}
+
+.allPostNameHeader {
+  width: 500px;
+  margin-left: 2px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.usernameDate {
+  vertical-align: top;
+  display: inline-block;
+  position: relative;
+  color: gray;
+  font-size: 14px;
+}
+
+.usernameDate a {
+  color: gray;
+}
+
+
+
+////// HASHTAG STUFF //////
+
+
+
+.hashTagShow {
+  padding: 10px;
+}
+
+.hashTagShow h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.tag_show a {
+  text-decoration: none;
+  font-size: 14px;
+  color: #0084B4;
+}
+
+.tag_show a:hover {
+  text-decoration: underline;
+}
+
+.showTagPosts a {
+  text-decoration: none;
+  font-size: 14px;
+}
+
+
+//// LIKE / STAR /////
+
+
+
+
+
+.postButtonLinkBar {
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 2px;
+  text-decoration: none;
+}
+
+.postButtonLinkBar a {
+  color: gray;
+}
+
+.postButtonLinkBar .unstarColor a {
+  color: #fbe0ad;
+  font-weight: 500;
+}
+
+.postButtonLinkBar .starColor {
+  color: gray;
+  font-weight: 500;
+}
+
+.starColor {
+  display: inline-block;
+  color: #fbe0ad;
+}
+
+.unstarColor {
+  display: inline-block;
+}
+
+.starColor:hover {
+  text-decoration: none;
+  color: #fbe0ad;
+  font-weight: 500;
+}
+
+
+
+/////
+
+
+
+.aside_pp {
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+}
+
+.aside_pp img {
+  height: 32px;
+  width: 32px;
+  display: inline-block;
+  margin-left: 15px;
+  margin-right: 5px;
+  border-radius: 5px;
+}
+
+.createPost {
+  padding: 10px;
+  background-color: #e5f2f7;
+}
+
+.submitButton {
+  position: relative;
+  text-align: right;
+  margin-top: 7px;
+  bottom: 10px;
+  right: 1px;
+}
+
+.submitButtonWhistle {
+  display: inline-block;
+  background-color: #badbea;
+  height: 39px;
+  border-radius: 5px;
+  border: 1px solid rgba(0,0,0,0);
+  font-size: 14px;
+  color: white;
+  font-weight: 500;
+  bottom: 10px;
+}
+
+.submitButtonWhistle:hover {
+  background-color: #2f9ac2;
+}
+
+.postWhistle {
+  height: 60px;
+  width: 508px;
+  border-radius: 3px;
+  border: 1px solid lightblue;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 14px;
+  resize: none;
+  padding: 10px;
+}
+
+.postWhistle textarea {
+  padding-left: 1em;
+}
+
+.postTag {
+  border: 1px solid lightblue;
+  border-radius: 3px;
+  display: inline-block;
+  position: relative;
+  top: 7px;
+  left: 56px;
+  height: 1.5em;
+  padding-left: 1em;
+}
+
+
+/////// SIGN IN / UP STUFF ///////
+
+.signUp {
+  width: 880px;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.signUpBoard {
+  border: 1px solid #e1e8ed;
+  background: white;
+  width: 500px;
+  margin: 0 auto;
+  padding: 10px;
+  padding-bottom: 35px;
+  border-radius: 8px;
+}
+
+.signUpForm {
+  border-radius: 5px;
+  width: 300px;
+  background: rgba(0,0,0,0);
+  border: 1px solid #e1e8ed;
+  line-height: 2em;
+  margin: 8px 0;
+  font-size: 14px;
+  padding-left: 10px;
+}
+
+.signUpFormButton {
+  border: 1px solid #3b88c3;
+  background-color: #1da1f2;
+  color: white;
+  border-radius: 5px;
+  height: 38px;
+  width: 310px;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.signUpFormTitle {
+  // color: #aab8c2;
+  font-weight: 200;
+  margin-top: 20px;
+}
+
+.signUpFormButton:hover {
+  cursor: pointer;
+}
+
+.signInPost {
+  padding: 10px 20px;
+  border-top: 1px solid #e1e8ed;
+  // border-bottom: 1px solid #e1e8ed;
+  text-align: center;
+}
+
+.signInForm {
+  border-radius: 5px;
+  width: 300px;
+  background: rgba(0,0,0,0);
+  border: 1px solid #e1e8ed;
+  line-height: 1.8em;
+  // margin: 2px 0;
+  font-size: 14px;
+  padding-left: 10px;
+}
+
+.error {
+  font-size: 14px;
+  color: gray;
+}
+
+
+////// MODAL ///////
+
+
+.createWhistleButton {
+  text-decoration: none;
+  display:inline-block;
+  position: relative;
+  height:30px;
+  width: 75px;
+  border: 1px solid #3b88c3;
+  background-color: #1da1f2;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 5px;
+  z-index: 10;
+  text-align: center;
+  color: white;
+  font-weight: 300;
+}
+
+.createWhistleButton:hover {
+  background-color: white;
+  color: #3b88c3;
+}
+
+.modalDialog {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 100;
+    opacity:0;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+
+.modalDialog:target {
+    opacity:1;
+    pointer-events: auto;
+}
+
+.modalDialog > div {
+    width: 609px;
+    height: 200spx;
+    position: relative;
+    margin: 10% auto;
+    border-radius: 6px;
+    background: white;
+}
+
+.spacefiller {
+  height: 35px;
+  position: relative;
+  text-align: center;
+  line-height: 40px;
+  color: #8899a6;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.close {
+    color: #8899a6;
+    line-height: 25px;
+    position: absolute;
+    right: 5px;
+    text-align: center;
+    top: 5px;
+    width: 24px;
+    text-decoration: none;
+    z-index: 101;
+    transform:scale(1.2,1.0);
+    font-weight: 200;
+}

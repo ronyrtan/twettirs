@@ -1,0 +1,10 @@
+<h1>Twettir</h1>
+
+Welcome to Twettir!
+<% if session[:user_id].present?%>
+  <%= @current_user.username%>!
+  <br>
+  You are logged in with user id : <%= session[:user_id] %>
+<% else %>
+Use the navigation at the top of the page to Sign in / up!
+<% end %>

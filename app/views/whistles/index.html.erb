@@ -1,0 +1,47 @@
+<div class="profileSmallHome">
+  <%= image_tag @current_user.profile_pic, :class => 'pp_dash' %>
+  <div class="dashHeaderImg"></div>
+  <div class="profileDashInfo">
+    <h3><%= link_to @current_user.name, user_path(@current_user), :class => 'profileDashName' %></h3>
+    <%= link_to "@#{@current_user.username}", user_path(@current_user), :class => 'profileDashUsername' %>
+  </div>
+  <div class="profileDashContent">
+  <%= link_to 'WHISTLES', user_path(@current_user) %><span><%= @current_user.whistles.count %></span>
+  <%= link_to 'FOLLOWING', user_path(@current_user) %><span><%= Relationship.where(:follower_id => @current_user.id).count %></span>
+  <%= link_to 'FOLLOWERS', user_path(@current_user) %><span><%= Relationship.where(:followed_id => @current_user.id).count %></span>
+  </div>
+</div>
+
+<div class="allPosts allPostsHomePos">
+  <% @whistles.reverse.each do |whistle| %>
+  <div class="allPostsSeg">
+    <div class="aside_pp">
+      <%= link_to image_tag(whistle.user.profile_pic), user_path(whistle.user), :class => 'pp_thumb' %>
+    </div>
+    <div class="allPostNameHeader">
+      <div class="allPostName">
+        <%= link_to whistle.user.name, user_path(whistle.user) %>
+      </div>
+      <div class="usernameDate">
+        @<%= link_to whistle.user.username, user_path(whistle.user) %>
+        - <%= link_to whistle.created_at.localtime.strftime("%b %d - %I:%M %p") %>
+      </div>
+      <br>
+        <%= link_to whistle.post, whistle %>
+      <div class="postButtonLinkBar">
+        <% if @current_user %>
+          <% if whistle.stared_by.first == nil %>
+          <div class="starColor">
+            <%= link_to "☆ #{ whistle.stared_by.count }", star_whistle_path(whistle, type: "star"), method: :put, :class => "starColor" %>
+          </div>
+          <% elsif whistle.stared_by.first.id == @current_user.id %>
+          <div class="unstarColor">
+            <%= link_to "★ #{ whistle.stared_by.count }", star_whistle_path(whistle, type: "unstar"), method: :put, :class => "unstarColor" %>
+          </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

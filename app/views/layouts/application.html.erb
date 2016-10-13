@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Twettir</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="nav_outer">
+    <nav>
+      <% if @current_user.present? %>
+      <div class="navigation">
+
+        <%= link_to "Home", whistles_path, :class => 'nav' %>
+        <%= link_to "Profile", user_path(@current_user), :class => 'nav' %>
+
+      </div>
+      <div class="nav_right">
+
+        <%= link_to "Logout #{ @current_user.username }", login_path, :method => 'delete', :class => 'nav' %>
+
+        <%= link_to 'Whistle', "#openModal", :class => "createWhistleButton" %>
+
+        <div id="openModal" class="modalDialog">
+          <div><a href="#close" title="Close" class="close">x</a>
+            <div class="spacefiller">Compose new Whistle</div>
+            <div class="allPosts createPost">
+            <%= form_for Whistle.new do |f| %>
+              <p>
+                <%= image_tag @current_user.profile_pic, :class => 'dp_thumb' %>
+                <%= f.text_area :post, :placeholder => "What's happening?", :size => 60, :maxlength => 140, :class => 'postWhistle' %>
+              </p>
+              <p>
+                <%= f.text_field :tag_list, :placeholder => 'Insert #tags here', :class => 'postTag' %>
+              </p>
+            <div class="submitButton">
+            <%= f.submit 'Whistle', :class => 'submitButtonWhistle' %>
+            </div>
+          </div>
+        </div>
+      </div>
+        <% end %>
+
+
+      <% else %>
+      <div class="navigation">
+        <%= link_to 'Home', root_path, :class => 'nav' %>
+      </div>
+      <div class="nav_right">
+        <%= link_to 'Sign up', new_user_path, :class => 'createWhistleButton' %>
+        <%= link_to 'Sign in', "#openModal", :class => "createWhistleButton" %>
+      </div>
+        <div id="openModal" class="modalDialog">
+          <div><a href="#close" title="Close" class="close">x</a>
+            <div class="spacefiller">Sign in to Twettir</div>
+            <div class="signInPost">
+
+              <%= form_tag login_path do %>
+              <p>
+                <%= email_field_tag :email, nil, :placeholder => 'Email', :class => 'signInForm' %>
+              </p>
+              <p>
+                <%= password_field_tag :password, nil, :placeholder => 'Password', :class => 'signInForm' %>
+              </p>
+
+                <%= submit_tag 'Log in', :class => 'signUpFormButton' %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+      <% end %>
+    </nav>
+  </div>
+<div class="spacer"></div>
+  <div class="container">
+    <%= yield %>
+  </div>
+
+</body>
+</html>
