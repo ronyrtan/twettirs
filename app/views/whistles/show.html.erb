@@ -10,7 +10,7 @@
     <ul>
       <li>
         <div class="aside_pp">
-          <%= link_to image_tag(@whistle.user.profile_pic), user_path(@whistle.user), :class => 'pp_thumb' %>
+          <%= link_to cl_image_tag(@whistle.user.profile_pic), user_path(@whistle.user), :class => 'pp_thumb' %>
         </div>
         <div class="allPostNameHeader">
           <div class="allPostName">
