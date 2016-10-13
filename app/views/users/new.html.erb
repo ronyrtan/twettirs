@@ -9,7 +9,7 @@
         <% end %>
       </ol>
     <% end %>
-    <%= form_for(@user, :html => {:multipart => true}) do |f| %>
+    <%= form_for @user do |f| %>
       <p>
         <%= f.email_field :email, :required => true, :placeholder => 'Email', :class => "signUpForm" %>
       </p>
@@ -28,10 +28,6 @@
 
       <p>
         <%= f.password_field :password_confirmation, :required => true, :placeholder => 'Confirm Password', :class => "signUpForm" %>
-      </p>
-
-      <p>
-        <%= f.cl_image_upload :profile_pic, :placeholder => 'Profile picture URL', :class => "signUpForm"  %>
       </p>
 
     <%= f.submit 'Sign up', :class => 'signUpFormButton' %>
