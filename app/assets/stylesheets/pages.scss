@@ -38,6 +38,8 @@ nav {  /// dictates the space of the nav bar
 
 .nav_search {
   display: inline-block;
+  position: relative;
+  left: 200px;
 }
 
 .nav_right {
