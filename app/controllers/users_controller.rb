@@ -34,9 +34,6 @@ class UsersController < ApplicationController
 
   def edit
     @user = @current_user
-    if @current_user.admin?
-      @user = User.find params[:id]
-    end
     # @user = User.find params[:id]
   end
 
