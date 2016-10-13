@@ -64,7 +64,12 @@ nav {  /// dictates the space of the nav bar
   position: relative;
 }
 
+
+
 ///// BODY CONTAINER ////
+
+
+
 
 .container {
   max-width: 885px;
@@ -101,8 +106,6 @@ nav {  /// dictates the space of the nav bar
   height: 50px;
 }
 
-
-
 .profilePic {
   height: 200px;
   width: 200px;
@@ -123,6 +126,48 @@ h3 {
   line-height: .8;
   margin-bottom: 1px;
 }
+
+
+
+/////// HOME PAGE //////////
+
+.homePageBlurb a {
+  color: #1da1f2;
+  text-decoration: none;
+}
+
+.homePageBlurb h3 {
+  line-height: 1.5em;
+  font-weight: 300;
+  font-size: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: #1da1f2;
+  text-shadow: 0 0 2px #1da1f2;
+  letter-spacing: 1px;
+  transition: all 0.4s ease-in-out;
+}
+
+.homePageBlurb h3:hover {
+  text-shadow: 0 0 10px #1da1f2;
+  color: white;
+}
+
+.homePageBlurb p {
+  line-height: 1.5em;
+  font-size: .8em;
+  color: gray;
+}
+
+.signUpBoardHome {
+  box-shadow: 0 0 10px white;
+  transition: all 0.3s ease-in-out;
+}
+
+.signUpBoardHome:hover {
+  // box-shadow: 0 0 10px #1da1f2;
+}
+
 
 /////// PROFILE PAGE ///////
 

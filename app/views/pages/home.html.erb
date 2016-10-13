@@ -1,10 +1,23 @@
-<h1>Twettir</h1>
-
-Welcome to Twettir!
-<% if session[:user_id].present?%>
-  <%= @current_user.username%>!
-  <br>
-  You are logged in with user id : <%= session[:user_id] %>
-<% else %>
-Use the navigation at the top of the page to Sign in / up!
-<% end %>
+<div class="signUp">
+  <div class="signUpBoard signUpBoardHome">
+    <h2 class="signUpFormTitle">Twettir.</h2>
+    <div class="homePageBlurb">
+      <h3>
+        What's Happening?
+      </h3>
+      <% if session[:user_id].present?%>
+        <%= @current_user.username%>!
+        <p>
+          You are logged in with user id : <%= session[:user_id] %>
+        </p>
+      <% else %>
+        <p>
+          <em>One programmers attempt to rebuild twitter from scratch.</em>
+        </p>
+        <p>
+          <%= link_to 'Sign up', new_user_path %> | <%= link_to 'Sign in', '#openModal' %> to get started.
+        </p>
+      <% end %>
+    </div>
+  </div>
+</div>
