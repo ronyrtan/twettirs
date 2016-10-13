@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   get '/users/edit' => 'users#edit', :as => 'edit_user'
   get '/users/:id/relationships' => 'users#relationships', as: :create_relationship
   delete '/users/:id/destroy_relationship' => 'users#destroy_relationship', as: :destroy_relationship
-  resources :users, :only => [:new, :create, :show, :update]
+  resources :users, :only => [:new, :create, :show, :update, :index]
   resources :whistles
 
   resources :whistles do
