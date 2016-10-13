@@ -32,9 +32,6 @@
     <% end %>
   <% end %>
   <% if found ==  true %>
-    <% if @current_user.admin? %>
-      <div class="editProfileAdmin"><%= link_to 'Edit', edit_user_path(@user) %></div>
-    <% end %>
     <div class=" editProfile">
       <%= link_to "Following", destroy_relationship_path(@user.id), :method => 'delete' %>
     </div>
