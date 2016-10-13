@@ -24,11 +24,11 @@
             <%= link_to @whistle.post, @whistle %>
           <div class="postButtonLinkBar">
             <% if @current_user %>
-              <% if @whistle.stared_by.first == nil %>
+              <% if @whistle.stared_by.first == nil || whistle.stared_by.first.id != @current_user.id  %>
                 <div class="starColor">
                   <%= link_to "☆ #{ @whistle.stared_by.count }", star_whistle_path(@whistle, type: "star"), method: :put, :class => "starColor" %>
                 </div>
-                <% else %>
+                <% elsif @whistle.stared_by.first.id == @current_user.id %>
                 <div class="unstarColor">
                   <%= link_to "★ #{ @whistle.stared_by.count }", star_whistle_path(@whistle, type: "unstar"), method: :put, :class => "unstarColor" %>
                 </div>
