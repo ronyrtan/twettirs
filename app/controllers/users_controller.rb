@@ -46,7 +46,7 @@ class UsersController < ApplicationController
     end
     @user.update_attributes user_params
     @user.save
-    if @user.update(user_params)
+    if @user.update_attributes user_params
       flash[:message] = 'Profile successfully updated'
       redirect_to user_path(@user)
     else
