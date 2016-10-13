@@ -36,9 +36,22 @@ nav {  /// dictates the space of the nav bar
   float: left;
 }
 
-.nav_right{
+.nav_right {
   display: inline-block;
   float: right;
+}
+
+.nav_search {
+  display: inline-block;
+  float: right;
+}
+
+.nav_search_form {
+  border-radius: 5px;
+}
+
+.search_button {
+
 }
 
 .nav { /// class for the Items on the nav bar
@@ -131,6 +144,8 @@ h3 {
 
 /////// HOME PAGE //////////
 
+
+
 .homePageBlurb a {
   color: #1da1f2;
   text-decoration: none;
@@ -169,7 +184,10 @@ h3 {
 }
 
 
+
 /////// PROFILE PAGE ///////
+
+
 
 .softProfileReset {
   margin: 0;
@@ -259,7 +277,11 @@ h3 {
   right: 23px;
 }
 
+
+
 ///// DASH /////
+
+
 
 .profileSmallHome {
   display: inline-block;
@@ -368,10 +390,10 @@ h3 {
   font-weight: 500;
 }
 
-/////////
 
 
 ////// ALL POSTS /////
+
 
 
 .allPosts {
@@ -487,9 +509,8 @@ h3 {
 }
 
 
+
 //// LIKE / STAR /////
-
-
 
 
 
@@ -607,7 +628,11 @@ h3 {
 }
 
 
+
+
 /////// SIGN IN / UP STUFF ///////
+
+
 
 .signUp {
   width: 880px;

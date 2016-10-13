@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   has_many :stars, through: :star_whistles, source: :whistle
 
   def self.search(search)
-    where("name ILIKE ? OR username ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%") 
+    where("name ILIKE ? OR username ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
   end
 
 end
