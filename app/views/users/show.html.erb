@@ -65,7 +65,7 @@
           <div class="starColor">
             <%= link_to "☆ #{ whistle.stared_by.count }", star_whistle_path(whistle, type: "star"), method: :put, :class => "starColor" %>
           </div>
-          <% elsif whistle.stared_by.first.id == @current_user.id %>
+          <% else %>
           <div class="unstarColor">
             <%= link_to "★ #{ whistle.stared_by.count }", star_whistle_path(whistle, type: "unstar"), method: :put, :class => "unstarColor" %>
           </div>
