@@ -54,15 +54,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def index
-    @user = User.all
-    if params[:search]
-      @user = User.search(params[:search]).order("created_at DESC")
-    else
-      @user = User.all.order("created_at DESC")
-    end
-  end
-
   private
   def user_params
     params.require(:user).permit(:email, :username, :name, :password, :password_confirmation, :profile_pic)
