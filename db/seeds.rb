@@ -16,9 +16,7 @@ u4 = User.create :email => 'admin@gmail.com', username: 'twettir_admin', :name =
 
 
 Relationship.destroy_all
-r1 = Relationship.create :follower_id => User.all[0].id, :followed_id => User.all[2].id
-r2 = Relationship.create :follower_id => User.all[1].id, :followed_id => User.all[2].id
-r3 = Relationship.create :follower_id => User.all[2].id, :followed_id => User.all[1].id
+
 
 u1.whistles << w1
 u2.whistles << w2
