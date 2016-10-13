@@ -9,12 +9,12 @@ class UsersController < ApplicationController
       req = Cloudinary::Uploader.upload params[:file]
       user.profile_pic = req["public_id"]
       user.save
-      if @user.save
+      # if @user.save
         session[:user_id] = @user.id
         redirect_to whistles_path # Sign up was successful
-      else
-        render :new
-      end
+      # else
+      #   render :new
+      # end
     end
   end
 
