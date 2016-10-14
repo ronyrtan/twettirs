@@ -28,6 +28,15 @@ body {
   cursor: pointer;
 }
 
+.select_nav {
+  position: absolute;
+  height: 0px;
+  width: 50px;
+  border-top: 5px solid #2b7bb9;
+  top: 42px;
+  z-index: 10000 !important;
+}
+
 .nav_outer { /// setting the space for the nav bar
   background-color: white;
   height: 46px;
