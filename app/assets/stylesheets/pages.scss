@@ -28,12 +28,22 @@ body {
   cursor: pointer;
 }
 
-.select_nav {
+.select_nav_home {
+  position: absolute;
+  height: 0px;
+  width: 56px;
+  border-top: 5px solid #2b7bb9;
+  top: 42px;
+  z-index: 10000 !important;
+}
+
+.select_nav_profile {
   position: absolute;
   height: 0px;
   width: 54px;
   border-top: 5px solid #2b7bb9;
   top: 42px;
+  left: 56px;
   z-index: 10000 !important;
 }
 
