@@ -16,7 +16,7 @@ class Whistle < ActiveRecord::Base
 
   acts_as_taggable_on :tags
 
-  has_many :star_whistles
+  has_many :star_whistles, dependent: :destroy
   has_many :stared_by, through: :star_whistles, source: :user
 
 end

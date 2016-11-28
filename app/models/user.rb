@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
 
-  has_many :star_whistles
+  has_many :star_whistles, dependent: :destroy
   has_many :stars, through: :star_whistles, source: :whistle
 
   def self.search(search)

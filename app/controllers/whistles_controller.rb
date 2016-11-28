@@ -24,6 +24,10 @@ class WhistlesController < ApplicationController
 
   def destroy
     whistle = Whistle.find params[:id]
+
+    ## Stops other users from deleting your post
+    redirect_to whistle if whistle.user_id != @current_user.id
+
     whistle.destroy
     redirect_to whistles_path
   end
